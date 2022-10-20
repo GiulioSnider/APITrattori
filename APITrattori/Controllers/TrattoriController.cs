@@ -12,7 +12,7 @@ namespace APITrattori.Controllers
     {
         private ITrattoriWorkerService _trattoriWorkerService;
 
-        public TrattoriController(TrattoriWorkerService trattoriWorkerService)
+        public TrattoriController(ITrattoriWorkerService trattoriWorkerService)
         {
             _trattoriWorkerService = trattoriWorkerService;
         }
@@ -38,7 +38,7 @@ namespace APITrattori.Controllers
             }
         }
 
-        [HttpGet("{color}")]
+        [HttpGet("color/{color}")]
         public IActionResult GetAllByFilter(Colore colore)
         {
             try
@@ -63,7 +63,7 @@ namespace APITrattori.Controllers
             return CreatedAtAction(nameof(GetDetail), new { idTrattore = resultTrattore.TrattoreId }, resultTrattore);
         }
 
-        [HttpDelete("{idTrattore")]
+        [HttpDelete("{idTrattore}")]
         public IActionResult DeleteTrattore(int idTrattore)
         {
             try

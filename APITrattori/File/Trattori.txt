@@ -1,1 +1,1 @@
-﻿
+[{"TrattoreId":1,"Marca":"Ferrari","Modello":"Quella Bella","Color":4},{"TrattoreId":2,"Marca":"Lamborghini","Modello":"Quella Brutta","Color":2}]

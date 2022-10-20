@@ -5,7 +5,7 @@ namespace APITrattori.Services.DA
 {
     public class DATrattoriFile : IDATrattoriFile
     {
-        private readonly string _path = "File\\Trattori.txt";
+        private string _path = "File\\Trattori.txt";
 
         public IEnumerable<Trattore> GetAll()
         {

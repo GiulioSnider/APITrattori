@@ -10,7 +10,7 @@ namespace APITrattori.Services.Worker
     {
         private IDATrattoriFile _DATrattoriFile;
 
-        public TrattoriWorkerService(DATrattoriFile dATrattoriFile)
+        public TrattoriWorkerService(IDATrattoriFile dATrattoriFile)
         {
             _DATrattoriFile = dATrattoriFile;
         }
@@ -48,7 +48,10 @@ namespace APITrattori.Services.Worker
         }
         private int GenerateId()
         {
-            return _DATrattoriFile.GetAll().Max(trattore => trattore.TrattoreId) + 1;
+            List<Trattore> trattori = _DATrattoriFile.GetAll().ToList();
+            if (trattori.Count == 0)
+                return 1;
+            return trattori.Max(trattore => trattore.TrattoreId) + 1;
         }
     }
 }
