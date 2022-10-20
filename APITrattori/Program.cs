@@ -1,3 +1,5 @@
+using APITrattori.Services.DA;
+using APITrattori.Services.DA.Interface;
 using APITrattori.Services.Worker.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ITrattoriWorkerService, ITrattoriWorkerService>();
+builder.Services.AddScoped<IDATrattoriFile, DATrattoriFile>();
 
 var app = builder.Build();
 
