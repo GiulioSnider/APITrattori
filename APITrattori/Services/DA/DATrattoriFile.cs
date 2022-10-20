@@ -28,5 +28,11 @@ namespace APITrattori.Services.DA
         {
             return GetAll().Where(trattore => trattore.Color == colore);
         }
+
+        public void Delete(Trattore trattoreToDelete)
+        {
+            var trattoriWithoutOne = GetAll().Where(tratt => tratt.TrattoreId != trattoreToDelete.TrattoreId).ToList();            
+            FileHelper.SerializeAndWrite(trattoriWithoutOne, _path);
+        }
     }
 }

@@ -17,13 +17,7 @@ namespace APITrattori.Services.Worker
 
         public Trattore Post(PostTrattore postTrattoreModel)
         {
-            Trattore fullTrattore = new()
-            {
-                TrattoreId = GenerateId(),
-                Marca = postTrattoreModel.Marca,
-                Modello = postTrattoreModel.Modello,
-                Color = postTrattoreModel.Color
-            };
+            Trattore fullTrattore = MappingNewTrattore(postTrattoreModel);
             _DATrattoriFile.AddSingleTrattore(fullTrattore);
             return fullTrattore;
         }
@@ -45,12 +39,22 @@ namespace APITrattori.Services.Worker
         }
         public Trattore Put(PostTrattore postTrattoreModel, int idTrattore)
         {
-            throw new NotImplementedException();
+            var trattori = _DATrattoriFile.GetAll();
+            var trattoreFromId = trattori.SingleOrDefault(tratt => tratt.TrattoreId == idTrattore);
+            if (trattoreFromId == default)
+            {
+                Trattore fullTrattore = MappingNewTrattore(postTrattoreModel);
+                _DATrattoriFile.AddSingleTrattore(fullTrattore);
+                return fullTrattore;
+            }
+            MappingPutTrattore(postTrattoreModel, trattoreFromId);
+            return null;
         }
 
         public void DeleteById(int idTrattore)
         {
-            throw new NotImplementedException();
+            var trattoreToDelete = GetById(idTrattore);
+            _DATrattoriFile.Delete(trattoreToDelete);
         }
         private int GenerateId()
         {
@@ -58,6 +62,22 @@ namespace APITrattori.Services.Worker
             if (trattori.Count == 0)
                 return 1;
             return trattori.Max(trattore => trattore.TrattoreId) + 1;
+        }
+        private Trattore MappingNewTrattore(PostTrattore postTrattore)
+        {
+            return new()
+            {
+                TrattoreId = GenerateId(),
+                Marca = postTrattore.Marca,
+                Modello = postTrattore.Modello,
+                Color = postTrattore.Color
+            };
+        }
+        private void MappingPutTrattore(PostTrattore putTrattore, Trattore originalTrattore)
+        {
+            originalTrattore.Color = putTrattore.Color;
+            originalTrattore.Modello = putTrattore.Modello;
+            originalTrattore.Marca = putTrattore.Marca;
         }
     }
 }
