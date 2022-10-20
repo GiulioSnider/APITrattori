@@ -30,7 +30,10 @@ namespace APITrattori.Services.Worker
 
         public Trattore GetById(int idTrattore)
         {
-            return _DATrattoriFile.GetById(idTrattore);
+            var trattoreById = _DATrattoriFile.GetById(idTrattore);
+            if (trattoreById == default)
+                throw new ArgumentNullException("ID non valido");
+            return trattoreById;
         }
 
         public List<Trattore> GetAllByColors(Colore colore)

@@ -20,9 +20,8 @@ namespace APITrattori.Services.DA
         }
 
         public Trattore GetById(int idTrattore)
-        {
-            var trattoriList = GetAll().ToList();
-            return trattoriList.SingleOrDefault(tratt => tratt.TrattoreId == idTrattore);
+        {            
+            return GetAll().SingleOrDefault(tratt => tratt.TrattoreId == idTrattore);
         }
     }
 }
