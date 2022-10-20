@@ -19,7 +19,7 @@ namespace APITrattori.Services.DA
             FileHelper.SerializeAndWrite(trattoriList,_path);
         }
 
-        public Trattore GetById(int idTrattore)
+        public Trattore? GetById(int idTrattore)
         {            
             return GetAll().SingleOrDefault(tratt => tratt.TrattoreId == idTrattore);
         }
