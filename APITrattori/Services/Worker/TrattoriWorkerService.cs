@@ -1,4 +1,5 @@
 ﻿using APITrattori.Models;
+using APITrattori.Services.DA;
 using APITrattori.Services.DA.Interface;
 using APITrattori.Services.Worker.Interfaces;
 using System.Drawing;
@@ -7,9 +8,9 @@ namespace APITrattori.Services.Worker
 {
     public class TrattoriWorkerService : ITrattoriWorkerService
     {
-        private readonly IDATrattoriFile _DATrattoriFile;
+        private IDATrattoriFile _DATrattoriFile;
 
-        public TrattoriWorkerService(IDATrattoriFile dATrattoriFile)
+        public TrattoriWorkerService(DATrattoriFile dATrattoriFile)
         {
             _DATrattoriFile = dATrattoriFile;
         }

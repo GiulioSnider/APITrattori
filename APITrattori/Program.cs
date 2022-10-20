@@ -1,5 +1,6 @@
 using APITrattori.Services.DA;
 using APITrattori.Services.DA.Interface;
+using APITrattori.Services.Worker;
 using APITrattori.Services.Worker.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +11,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<ITrattoriWorkerService, ITrattoriWorkerService>();
+builder.Services.AddScoped<ITrattoriWorkerService, TrattoriWorkerService>();
 builder.Services.AddScoped<IDATrattoriFile, DATrattoriFile>();
 
 var app = builder.Build();

@@ -1,4 +1,5 @@
 ﻿using APITrattori.Models;
+using APITrattori.Services.Worker;
 using APITrattori.Services.Worker.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,9 +10,9 @@ namespace APITrattori.Controllers
     [ApiController]
     public class TrattoriController : ControllerBase
     {
-        private readonly ITrattoriWorkerService _trattoriWorkerService;
+        private ITrattoriWorkerService _trattoriWorkerService;
 
-        public TrattoriController(ITrattoriWorkerService trattoriWorkerService)
+        public TrattoriController(TrattoriWorkerService trattoriWorkerService)
         {
             _trattoriWorkerService = trattoriWorkerService;
         }

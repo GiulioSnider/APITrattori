@@ -4,8 +4,7 @@ using System.Text.Json;
 namespace APITrattori.Services.DA
 {
     public static class FileHelper
-    {
-        
+    {        
         public static void SerializeAndWrite(List<Trattore> musicInstruments, string path)
         {
             var SerializedList = JsonSerializer.Serialize(musicInstruments);
