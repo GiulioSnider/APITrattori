@@ -6,6 +6,7 @@ namespace APITrattori.Services.DA.Interface
     {
         void AddSingleTrattore(Trattore fullTrattore);
         IEnumerable<Trattore> GetAll();
+        IEnumerable<Trattore> GetByColor(Colore colore);
         Trattore GetById(int idTrattore);
     }
 }

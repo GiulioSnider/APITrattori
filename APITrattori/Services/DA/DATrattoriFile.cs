@@ -23,5 +23,10 @@ namespace APITrattori.Services.DA
         {            
             return GetAll().SingleOrDefault(tratt => tratt.TrattoreId == idTrattore);
         }
+
+        public IEnumerable<Trattore> GetByColor(Colore colore)
+        {
+            return GetAll().Where(trattore => trattore.Color == colore);
+        }
     }
 }

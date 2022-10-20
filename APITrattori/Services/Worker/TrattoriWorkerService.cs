@@ -38,7 +38,10 @@ namespace APITrattori.Services.Worker
 
         public List<Trattore> GetAllByColors(Colore colore)
         {
-            throw new NotImplementedException();
+            var trattoriByColor = _DATrattoriFile.GetByColor(colore).ToList();
+            if (trattoriByColor.Count == 0)
+                throw new Exception("Non ci sono trattori di quel colore");
+            return trattoriByColor;
         }
         public Trattore Put(PostTrattore postTrattoreModel, int idTrattore)
         {
