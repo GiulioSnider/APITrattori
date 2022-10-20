@@ -5,15 +5,15 @@ namespace APITrattori.Services.DA
 {
     public static class FileHelper
     {
-        private static string _path = "File\\Trattori.txt";
-        public static void SerializeAndWrite(List<Trattore> musicInstruments)
+        
+        public static void SerializeAndWrite(List<Trattore> musicInstruments, string path)
         {
             var SerializedList = JsonSerializer.Serialize(musicInstruments);
-            File.WriteAllText(_path, SerializedList);
+            File.WriteAllText(path, SerializedList);
         }
-        public static IEnumerable<Trattore> ReadAndDeserializeFile()
+        public static IEnumerable<Trattore> ReadAndDeserializeFile(string path)
         {
-            var fileContent = File.ReadAllText(_path);
+            var fileContent = File.ReadAllText(path);
             if (fileContent == string.Empty)
             {
                 return new List<Trattore>();
