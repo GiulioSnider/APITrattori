@@ -39,8 +39,7 @@ namespace APITrattori.Services.Worker
         }
         public Trattore Put(PostTrattore postTrattoreModel, int idTrattore)
         {
-            var trattori = _DATrattoriFile.GetAll();
-            var trattoreFromId = trattori.SingleOrDefault(tratt => tratt.TrattoreId == idTrattore);
+            var trattoreFromId = _DATrattoriFile.GetAll().SingleOrDefault(tratt => tratt.TrattoreId == idTrattore);
             if (trattoreFromId == default)
             {
                 Trattore fullTrattore = MappingNewTrattore(postTrattoreModel);
@@ -48,6 +47,7 @@ namespace APITrattori.Services.Worker
                 return fullTrattore;
             }
             MappingPutTrattore(postTrattoreModel, trattoreFromId);
+            _DATrattoriFile.AddSingleTrattore(trattoreFromId);
             return null;
         }
 
