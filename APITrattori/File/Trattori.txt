@@ -1,1 +1,1 @@
-[{"TrattoreId":2,"Marca":"Lamborghini","Modello":"Quella Brutta","Color":2},{"TrattoreId":3,"Marca":"Fiat","Modello":"Medina","Color":1},{"TrattoreId":4,"Marca":"Fiat","Modello":"Medio","Color":0}]
+[{"TrattoreId":2,"Marca":"Lamborghini","Modello":"Quella Brutta","Color":2},{"TrattoreId":3,"Marca":"Fiat","Modello":"Medina","Color":1},{"TrattoreId":4,"Marca":"Fiat","Modello":"Medio","Color":0},{"TrattoreId":5,"Marca":"Volvo","Modello":"Bah","Color":0},{"TrattoreId":6,"Marca":"Marcona","Modello":"Modellino","Color":0}]

@@ -26,7 +26,7 @@ namespace APITrattori.Services.Worker
         {
             var trattoreById = _DATrattoriFile.GetById(idTrattore);
             if (trattoreById == default)
-                throw new ArgumentNullException("ID non valido");
+                throw new Exception("ID non valido");
             return trattoreById;
         }
 
