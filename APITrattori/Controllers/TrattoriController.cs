@@ -38,9 +38,10 @@ namespace APITrattori.Controllers
             }
         }
 
-        [HttpGet("color/{color}")]
+        [HttpGet]//la cosa più rest coi filtri è usare i query params perchè stai sempre facendo una getAll ma filtrata
         public IActionResult GetAllByFilter(Colore colore)
         {
+            Console.WriteLine(colore.ToString());//prove col colore
             try
             {
                 List<Trattore> trattoriByColors = _trattoriWorkerService.GetAllByColors(colore);
